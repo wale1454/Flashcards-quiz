@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="main.css">  -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="main.css" > -->
+
+    <script src="main.js"></script>
+
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+
+<nav>
+  <div class="home" >
+    <a href="/">  <b>  Home  </b> </a>
+  </div>
+</nav>
+
+
+  
+
+    <!-- <h2> Science </h2> -->
+
+
+<div class="artboard">
+
+    <!-- <link rel="stylesheet" href="main.css">  -->
+
+    <div class="card">
+   
+     <div class="card__side card__side--back">
+      <div class="card__cover">
+       <h4 class="card__heading">
+        <span class="card__heading-span"> Question {{ index }} </span>
+       </h4>
+      </div>
+      <div class="card__details">
+       <ul>
+        <li> {{ question }} </li>
+        <br>
+
+        <li style="color: rgb(20, 201, 80) ;" > {{ correctAns }} </li>
+        <!-- <li>  {{ options[0] }} </li>
+        <li> {{ options[1] }}  </li>
+        <li id="school" onclick="options1" > {{ options[2] }} </li> -->
+       
+       </ul>
+      </div>
+     </div>
+   
+     <div class="card__side card__side--front">
+      <div class="card__theme">
+       <div class="card__theme-box">
+        <p class="card__subject"> Question {{index}} </p>
+        <p class="card__title"> {{ question }}</p>
+       </div>
+      </div>
+     </div>
+   
+    </div>
+  </div>
+
+
+  <br>
+  <div class="nextitem2">
+    <a class="nextitem" href="/quiz/{{ ty+1 }}"><button class="bn9"><span>Next</span></button></a>
+  </div>
+
+  <br>
+  <br>
+
+
+
+<style>
+  .home{
+    /* padding-left: 1rem;  */
+    font-size: 14px;
+
+    background: linear-gradient(
+    to right,
+    #fdde5c,
+    #f8ab5e,
+    #f56a62,
+    #a176c8,
+    #759beb,
+    #65beb3,
+    #70db96
+  );
+    padding: 8px;
+    padding-left: 45px;
+  }
+
+  .home a {
+    text-decoration: none;
+  }
+
+
+@keyframes slideInLeft {
+        0% {
+          transform: translateX(-50%);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+
+.nextitem{
+  font-size: 505px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  /* height: ; */
+
+}
+
+
+.bn9 {  
+
+  padding: 12px;
+  outline: 0;
+  font-size: 27px;
+  color: rgb(0, 0, 0);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#fdde5c),
+    color-stop(#f8ab5e),
+    color-stop(#f56a62),
+    color-stop(#a176c8),
+    color-stop(#759beb),
+    color-stop(#65beb3),
+    to(#70db96)
+  );
+  background: linear-gradient(
+    to right,
+    #fdde5c,
+    #f8ab5e,
+    #f56a62,
+    #a176c8,
+    #759beb,
+    #65beb3,
+    #70db96
+  );
+  border-radius: 55px;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.bn9 > span {
+  display: block;
+  padding: 10px 40px;
+  font-size: 25px;
+  font-weight: 500;
+  background: #ebebeb;
+  border-radius: 30px;
+}
+
+
+
+
+
+/* Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: red; */
+}
+
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  height: 100vh;
+  background-color: #ece0e8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.artboard {
+
+  animation: 1s ease-out 0s 1 slideInLeft;
+
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  height: 90%;
+  position: relative;
+}
+@media (max-width: 37.5em) {
+  .artboard {
+    padding: 0.8rem;
+  }
+}
+
+.card {
+  flex: initial;
+  position: relative;
+  height: 52rem;
+  width: 54rem;
+  -moz-perspective: 200rem;
+  perspective: 200rem;
+  margin: 0;
+  /* margin-top: 0; */
+}
+.card__side {
+  height: 52rem;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+  /* We don't want to see the back part of the element. */
+  backface-visibility: hidden;
+  /* We don't want to see the back part of the element. */
+  border-radius: 3px;
+  overflow: hidden;
+  /* The image is overflowing the parent. */
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+}
+.card__side--front {
+  background-image: linear-gradient(to right bottom, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.7)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+}
+.card__side--back {
+  background-color: #fff;
+  transform: rotateY(180deg);
+}
+.card:hover .card__side--back {
+  transform: rotateY(0);
+}
+.card:hover .card__side--front {
+  transform: rotateY(-180deg);
+}
+.card__theme {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 54%;
+  width: 90%;
+  text-align: center;
+}
+.card__theme-box {
+  color: #fff;
+  margin-bottom: 8rem;
+}
+.card__subject {
+  /* font-family: "Inconsolata", monospace; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  letter-spacing: 0.8rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.card__title {
+  /* font-family: "VT323", monospace; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* text-transform: uppercase; */
+  font-size: 4rem;
+  font-weight: 100;
+}
+.card__cover {
+  position: relative;
+  background-size: cover;
+  height: 14rem;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  background-image: linear-gradient(to top right, rgba(30, 11, 54, 0.65), rgba(202, 55, 130, 0.65)), url(https://cdn.spacetelescope.org/archives/images/screen/heic0406a.jpg);
+}
+.card__heading {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+}
+.card__heading-span {
+  /* font-family: "VT323", monospace; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 4.2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  color: #fff;
+}
+.card__details {
+  /* font-family: "Inconsolata", monospace; */
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 4rem 2rem;
+}
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+.card__details ul li {
+  text-align: center;
+  font-size: 3rem;
+  padding: 1rem;
+}
+.card__details ul li:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+@media only screen and (max-width: 37.5em), only screen and (hover: none) {
+  .card {
+    height: auto;
+    border-radius: 3px;
+    background-color: #fff;
+    box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.15);
+  }
+  .card__side {
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+  .card__side--front {
+    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+  }
+  .card__side--back {
+    transform: rotateY(0);
+  }
+  .card:hover .card__side--front {
+    transform: rotateY(0);
+  }
+  .card__details {
+    padding: 3rem 2rem;
+  }
+  .card__theme {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: translate(0);
+    width: 100%;
+    padding: 5rem 4rem 1.5rem 4rem;
+    text-align: right;
+  }
+  .card__theme-box {
+    margin-bottom: 1.5rem;
+  }
+  .card__title {
+    font-size: 2.5rem;
+  }
+}
+
+
+
+.small{
+    font-size: small;
+    font-weight: lighter;
+}
+
+.mainman{
+    background: rgb(238, 238, 238);
+    border: 0.7px solid black;
+
+}
+
+.evr{
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    padding: 20px;
+}
+
+.evr a:nth-child(1) {
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+
+
+   </style>
+
+    
+</body>
+</html>
