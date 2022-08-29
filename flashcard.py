@@ -1,9 +1,9 @@
 from flask import Flask, render_template, abort, redirect
-from datetime import datetime
-# from models import db, db2
+# from flask import jsonify
 import requests
 
 app = Flask(__name__)
+
 
 @app.route("/quiz/<int:index>")
 def welcome(index):
@@ -17,8 +17,6 @@ def welcome(index):
     options = pl[index]["incorrectAnswers"]
     correctAns = pl[index]["correctAnswer"]
 
-
-
     return render_template('main.html',  index=ty, category = category, options = options,
                             question=question, ty=ty, correctAns = correctAns)
 
@@ -30,8 +28,18 @@ def redirr():
 
 @app.route("/")
 def homePage():
-
     return render_template("home.html")
+
+
+ 
+@app.errorhandler(404) 
+def invalid_route(e): 
+
+    return redirect('/')
+    # return jsonify({'errorCode' : 404, 'message' : 'Route not found'})
+  
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 # @app.route("/date")
